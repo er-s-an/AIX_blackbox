@@ -175,4 +175,6 @@ pnpm test:ablation        # 临时目录对照：去重、先留请求记录、�
 
 ## License
 
-[MIT](LICENSE).
+项目原创代码采用 [MIT](LICENSE)。第三方代码、字体、模型服务和展示素材保留各自许可。
+
+参赛所需的来源说明见 [开源库、模型、数据集、赛前资产与许可披露](DISCLOSURES.md)，精确依赖清单见 [Third-party notices](THIRD_PARTY_NOTICES.md)。
