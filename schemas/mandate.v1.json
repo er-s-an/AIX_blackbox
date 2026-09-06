@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/mandate.v1.json",
+  "title": "AFR Mandate v1 (EIP-712 signed)",
+  "description": "AUTH commitment = sha256(ASCII AFR-MND-v1 || JCS(entire signed mandate.json)), including domain, signature and signer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "typed_data",
+    "signature",
+    "signer"
+  ],
+  "properties": {
+    "format_version": {
+      "const": "afr-mandate/1"
+    },
+    "typed_data": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domain",
+        "types",
+        "primaryType",
+        "message"
+      ],
+      "properties": {
+        "domain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name",
+            "version",
+            "chainId",
+            "verifyingContract"
+          ],
+          "properties": {
+            "name": {
+              "const": "AgentFlightRecorder"
+            },
+            "version": {
+              "const": "1"
+            },
+            "chainId": {
+              "const": 1439,
+              "description": "必须是 JSON number 1439；严禁字符串 injective-888"
+            },
+            "verifyingContract": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            }
+          }
+        },
+        "types": {
+          "type": "object",
+          "required": [
+            "EIP712Domain",
+            "AFRMandate"
+          ],
+          "properties": {
+            "AFRMandate": {
+              "const": [
+                {
+                  "name": "mandate_id",
+                  "type": "string"
+                },
+                {
+                  "name": "task",
+                  "type": "string"
+                },
+                {
+                  "name": "currency",
+                  "type": "string"
+                },
+                {
+                  "name": "total_budget",
+                  "type": "string"
+                },
+                {
+                  "name": "per_tx_cap",
+                  "type": "string"
+                },
+                {
+                  "name": "supplier_registry",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "valid_from",
+                  "type": "uint64"
+                },
+                {
+                  "name": "valid_until",
+                  "type": "uint64"
+                },
+                {
+                  "name": "confirmation_mode",
+                  "type": "string"
+                },
+                {
+                  "name": "policy_hash",
+                  "type": "bytes32"
+                },
+                {
+                  "name": "agent_wallet",
+                  "type": "address"
+                },
+                {
+                  "name": "mandate_version",
+                  "type": "uint32"
+                },
+                {
+                  "name": "allowed_tools",
+                  "type": "string"
+                },
+                {
+                  "name": "asset_address",
+                  "type": "address"
+                },
+                {
+                  "name": "lineage_id",
+                  "type": "bytes16"
+                }
+              ]
+            },
+            "EIP712Domain": {
+              "const": [
+                {
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "name": "version",
+                  "type": "string"
+                },
+                {
+                  "name": "chainId",
+                  "type": "uint256"
+                },
+                {
+                  "name": "verifyingContract",
+                  "type": "address"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "primaryType": {
+          "const": "AFRMandate"
+        },
+        "message": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mandate_id",
+            "task",
+            "currency",
+            "total_budget",
+            "per_tx_cap",
+            "supplier_registry",
+            "valid_from",
+            "valid_until",
+            "confirmation_mode",
+            "policy_hash",
+            "agent_wallet",
+            "mandate_version",
+            "allowed_tools",
+            "asset_address",
+            "lineage_id"
+          ],
+          "properties": {
+            "mandate_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "task": {
+              "type": "string",
+              "minLength": 5,
+              "maxLength": 1000
+            },
+            "currency": {
+              "const": "AFR-TEST-USD"
+            },
+            "total_budget": {
+              "$ref": "#/$defs/decimal"
+            },
+            "per_tx_cap": {
+              "$ref": "#/$defs/decimal"
+            },
+            "supplier_registry": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$",
+              "description": "scenario.json 中 supplier_registry 对象的 sha256"
+            },
+            "valid_from": {
+              "type": "string",
+              "pattern": "^[0-9]{1,20}$",
+              "description": "unix 秒，字符串承载（JCS 无大整数风险）"
+            },
+            "valid_until": {
+              "type": "string",
+              "pattern": "^[0-9]{1,20}$"
+            },
+            "confirmation_mode": {
+              "enum": [
+                "none",
+                "human_second_confirm"
+              ]
+            },
+            "policy_hash": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{64}$"
+            },
+            "agent_wallet": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            },
+            "mandate_version": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "allowed_tools": {
+              "type": "string",
+              "enum": [
+                "request_payment"
+              ]
+            },
+            "asset_address": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{40}$"
+            },
+            "lineage_id": {
+              "type": "string",
+              "pattern": "^0x[0-9a-f]{32}$"
+            }
+          }
+        }
+      }
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{130}$"
+    },
+    "signer": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$",
+      "description": "recoverTypedDataAddress 结果；CLI 重新恢复并比对"
+    }
+  },
+  "$defs": {
+    "decimal": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]{18}$"
+    }
+  }
+}

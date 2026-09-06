@@ -1,0 +1,370 @@
+{
+  "at": "2026-09-05T12:23:54.511Z",
+  "suite": "runs/evaluation-2026-09-05T11-51-53-397Z",
+  "audited": 72,
+  "passed": 72,
+  "total_actual_requests": 80,
+  "checks": "Request allowlist, no ground-truth labels, matching recorded request digest, independent verifier signature, input/output/rules digests",
+  "rows": [
+    {
+      "name": "F01-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-original-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-original-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-rename-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-paraphrase-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F01-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-original-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-original-3",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F02-rename-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-paraphrase-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F02-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-original-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-original-3",
+      "pass": true,
+      "actual_requests": 3
+    },
+    {
+      "name": "F03-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-rename-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F03-paraphrase-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-original-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-original-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-rename-1",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F04-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F04-paraphrase-2",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F05-original-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-original-2",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F05-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-rename-1",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F05-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-paraphrase-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F05-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-original-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-original-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-original-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-rename-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-rename-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-rename-1",
+      "pass": true,
+      "actual_requests": 2
+    },
+    {
+      "name": "F06-shuffle-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-shuffle-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-shuffle-3",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-paraphrase-1",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-paraphrase-2",
+      "pass": true,
+      "actual_requests": 1
+    },
+    {
+      "name": "F06-paraphrase-3",
+      "pass": true,
+      "actual_requests": 1
+    }
+  ]
+}

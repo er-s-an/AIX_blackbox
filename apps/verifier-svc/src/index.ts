@@ -1,0 +1,11 @@
+import Fastify from 'fastify';import {readFileSync} from 'node:fs';import {parse} from 'dotenv';import {privateKeyToAccount} from 'viem/accounts';import {timingSafeEqual} from 'node:crypto';
+import {digest,hash,signDigest,analysisOutputDigest,inputDigest,type Json} from '../../../packages/core/src/index.ts';import {validate} from '../../../packages/core/src/schema.ts';
+const env=parse(readFileSync('.secrets/verifier.env'));if(env.GATEWAY_PK||env.OPERATOR_PK||process.env.GATEWAY_PK||process.env.OPERATOR_PK)throw new Error('KEY_ISOLATION_VIOLATION');
+const account=privateKeyToAccount(env.VERIFIER_PK as `0x${string}`);export const programHash=hash(readFileSync(new URL('./index.ts',import.meta.url)));
+const app=Fastify({logger:false,bodyLimit:2*1024*1024});app.get('/health',async()=>({ok:true,program_hash:programHash,software_statement:true}));
+app.post('/statement',async(req,reply)=>{const provided=Buffer.from(String(req.headers.authorization||'')),expected=Buffer.from('Bearer '+env.SERVICE_TOKEN);if(provided.length!==expected.length||!timingSafeEqual(provided,expected))return reply.code(401).send({error:'Unauthorized'});
+ const {analysis,rules,request}=req.body as Json;try{validate('analysis',analysis);const requestDigest=digest(request.messages);if(!analysis.model_run.input_digests.includes(requestDigest))throw new Error();
+ const statement={program_hash:programHash,program_name:'afr-verifier-svc',program_version:'0.1.0',input_digest:inputDigest(analysis.model_run.input_digests),output_digest:analysisOutputDigest(analysis),rule_facts_digest:digest(rules),issued_at:new Date().toISOString(),key_id:'verifier-demo-1'};
+ return {format_version:'afr-execenv/1',type:'software',statement,signature:await signDigest(account,digest(statement))};
+ }catch{return reply.code(422).send({error:'Input/output validation failed'});}});
+await app.listen({host:'127.0.0.1',port:4312});for(const s of ['SIGINT','SIGTERM'])process.on(s,()=>void app.close());

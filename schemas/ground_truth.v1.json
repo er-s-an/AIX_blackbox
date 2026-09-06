@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/ground_truth.v1.json",
+  "title": "AFR fixture ground-truth v1 (NEVER provided to the model)",
+  "description": "PRD v1.3 §16.1 / Story 4.3。位于 fixtures/<F0x>/ground_truth.json；evalkit 读取；其 sha256 不得出现在 analysis.model_run.input_digests 中（evalkit 断言）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "fixture_id",
+    "expected_category",
+    "must_cite",
+    "expected_policy_refs",
+    "allowed_confidence",
+    "allowed_next_states",
+    "rule_facts",
+    "author_note"
+  ],
+  "properties": {
+    "format_version": {
+      "const": "afr-gt/1"
+    },
+    "fixture_id": {
+      "type": "string",
+      "pattern": "^F[0-9]{2}$"
+    },
+    "expected_category": {
+      "enum": [
+        "Prompt Injection",
+        "Duplicate Execution",
+        "User-Authorized Action",
+        "Evidence Failure",
+        "Undetermined"
+      ]
+    },
+    "forbidden_categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "无攻击对照：['Prompt Injection']"
+    },
+    "must_cite": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EV-[0-9a-f]{8}$"
+      },
+      "description": "evidence_refs 必须包含的集合；PI 夹具必含注入内容所在证据"
+    },
+    "must_quote_from": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^EV-[0-9a-f]{8}$"
+      },
+      "description": "quotes 至少一条须来自这些证据"
+    },
+    "expected_policy_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^PC-[0-9]{3}$"
+      },
+      "description": "policy_refs 与之交集非空"
+    },
+    "allowed_confidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    },
+    "allowed_next_states": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "enum": [
+          "Under Review",
+          "Needs Information",
+          "Rejected for Processing",
+          "No Claim"
+        ]
+      }
+    },
+    "rule_facts": {
+      "type": "object",
+      "description": "规则引擎对该夹具的预期输出（硬字段）；evalkit 比对 rule_facts_digest 并断言 AI 输出未改写这些值",
+      "additionalProperties": true
+    },
+    "author_note": {
+      "type": "string",
+      "maxLength": 2000,
+      "description": "人读理由；不评分"
+    }
+  }
+}

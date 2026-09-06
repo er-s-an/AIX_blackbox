@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-05T14:41:20.275Z",
+  "real_backend": true,
+  "login": "PASS",
+  "session_selection": "PASS",
+  "packet_download": "PASS",
+  "page_errors": [],
+  "mobile_overflow": false,
+  "metamask_ui": "NOT_RUN: no browser extension; no provider mock injected"
+}

@@ -1,0 +1,38 @@
+{
+  "software_signatures": [
+    {
+      "name": "signature-0",
+      "pass": true
+    },
+    {
+      "name": "signature-1",
+      "pass": true
+    },
+    {
+      "name": "signature-2",
+      "pass": true
+    },
+    {
+      "name": "tamper-task",
+      "pass": true
+    },
+    {
+      "name": "tamper-total_budget",
+      "pass": true
+    },
+    {
+      "name": "tamper-lineage_id",
+      "pass": true
+    },
+    {
+      "name": "mainnet-domain-rejected",
+      "pass": true
+    },
+    {
+      "name": "commitment-binds-signer",
+      "pass": true
+    }
+  ],
+  "metamask_ui": "NOT_RUN",
+  "at": "2026-09-05T11:30:30.077Z"
+}

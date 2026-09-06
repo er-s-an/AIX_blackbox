@@ -1,0 +1,129 @@
+[
+  {
+    "id": "JCS-01",
+    "input": {
+      "z": 1,
+      "a": 2
+    },
+    "canonical": "{\"a\":2,\"z\":1}",
+    "sha256": "0xc2985c5ba6f7d2a55e768f92490ca09388e95bc4cccb9fdf11b15f4d42f93e73"
+  },
+  {
+    "id": "JCS-02",
+    "input": {
+      "a": [
+        3,
+        {
+          "z": 0,
+          "a": true
+        },
+        null
+      ]
+    },
+    "canonical": "{\"a\":[3,{\"a\":true,\"z\":0},null]}",
+    "sha256": "0x5e676c883d3658c2b788a1b2b539df453c3486877ce282d5946a9c64799b0953"
+  },
+  {
+    "id": "JCS-03",
+    "input": [
+      "中文",
+      "é",
+      "é"
+    ],
+    "canonical": "[\"中文\",\"é\",\"é\"]",
+    "sha256": "0xb66c2a24cba3c67c54866eaad0482ec507187ced71ec32973a6a03481e2c3ad8"
+  },
+  {
+    "id": "JCS-04",
+    "input": {
+      "value": 0
+    },
+    "canonical": "{\"value\":0}",
+    "sha256": "0x23d7b286bd429460b92a2a1c21b6afc34110446c5034c17363fda363aa0a7c5d"
+  },
+  {
+    "id": "JCS-05",
+    "input": {
+      "value": 1e+30
+    },
+    "canonical": "{\"value\":1e+30}",
+    "sha256": "0x8a1f3c744e128e3bcebd94e83dea7084a4d28c8657cf49ab0af94f3353190e5b"
+  },
+  {
+    "id": "JCS-06",
+    "input": {
+      "value": 1e-7
+    },
+    "canonical": "{\"value\":1e-7}",
+    "sha256": "0x910750038eb30a40d06da88009b6259aabaf3751b3cb212c616d51abb6b008a4"
+  },
+  {
+    "id": "JCS-07",
+    "input": {
+      "value": 0.000001
+    },
+    "canonical": "{\"value\":0.000001}",
+    "sha256": "0xbc1c982dd4e677d72ff5821cc67554e045e838a31ddc55fa0fdb1a32d5a1dce9"
+  },
+  {
+    "id": "JCS-08",
+    "input": {
+      "value": 1e+21
+    },
+    "canonical": "{\"value\":1e+21}",
+    "sha256": "0x776bf0d292f3767fdfca3fdc9683d0ba51886b8e6e79cd228a41bafcfa9a1a6f"
+  },
+  {
+    "id": "JCS-09",
+    "input": {
+      "value": 100000000000000000000
+    },
+    "canonical": "{\"value\":100000000000000000000}",
+    "sha256": "0x2426a224e9c5d971eeb3c6c4455aa6ed3c4790765f05f5fa0d169a68e1317b3a"
+  },
+  {
+    "id": "JCS-10",
+    "input": {
+      "1": "one",
+      "\r": "CR",
+      "€": "Euro",
+      "😀": "emoji",
+      "ö": "o"
+    },
+    "canonical": "{\"\\r\":\"CR\",\"1\":\"one\",\"ö\":\"o\",\"€\":\"Euro\",\"😀\":\"emoji\"}",
+    "sha256": "0xe78f9e9605760e5570bd71bd0a4fb18bcbec8f2c3619a3436d24eea582552045"
+  },
+  {
+    "id": "JCS-11",
+    "input": {
+      "text": "\"\\\n\t\b\f\r"
+    },
+    "canonical": "{\"text\":\"\\\"\\\\\\n\\t\\b\\f\\r\"}",
+    "sha256": "0x311029b7fc9662c04a7dbd12579c20f64d669d72928140e9d78afa07fd311869"
+  },
+  {
+    "id": "JCS-12",
+    "input": [
+      333333333.3333333,
+      4.5,
+      0.002,
+      1e-27
+    ],
+    "canonical": "[333333333.3333333,4.5,0.002,1e-27]",
+    "sha256": "0xcb37560c2cd218fb07360837ed89d2106ac539ef35e05b33cc63f15e543b2d72"
+  },
+  {
+    "id": "JCS-13",
+    "input": {
+      "amount": "8.000000000000000000"
+    },
+    "canonical": "{\"amount\":\"8.000000000000000000\"}",
+    "sha256": "0x30875ff9c46f59e9a98817a91e686b4a84d0f0204e0855b5c5ac1a1be73eca2c"
+  },
+  {
+    "id": "JCS-14",
+    "input": {},
+    "canonical": "{}",
+    "sha256": "0x44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  }
+]

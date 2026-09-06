@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-05T14:38:47.182Z",
+  "source_working_tree": true,
+  "install": "pnpm install --frozen-lockfile",
+  "new_keys": true,
+  "wallet_funding": false,
+  "model_api_used": false,
+  "contracts_deployed": false,
+  "recording_only": true,
+  "protected_workflow_disabled": true,
+  "snapshot_result": "incomplete",
+  "signature_trust": "Pass",
+  "cold_directory": "/var/folders/9k/v2vrmd_53jj3gjk3chdvqhz40000gn/T/afr-cold-recorder-huY0j1"
+}

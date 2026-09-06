@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-05T14:16:45.845Z",
+  "agent_id": "agent_ffb78d30a2795192",
+  "run_id": "qa_1788617795280",
+  "model": "glm-5.2",
+  "calls": 1,
+  "receipt": {
+    "chain_id": 1439,
+    "tx_hash": "0xa24c7f3d136fb2d4972436364d896547ad30cabf149d6d0ed8928652c91ab0b6",
+    "asset": "0x275d80af2b4ee79701f3dc2b8fdb586f7d39b973",
+    "from": "0xfd8772EC5BcC4632d40c7a658Ee65d122eF5ed8e",
+    "to": "0x000000000000000000000000000000000000af12",
+    "amount": "0.010000000000000000"
+  },
+  "duplicate_rejected": true,
+  "no_additional_nonce": true,
+  "events": 8,
+  "source": "independent agent process, installed SDK tarball, real model, real testnet, intentional application failure"
+}

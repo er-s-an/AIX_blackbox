@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/manifest.v1.json",
+  "title": "AFR Claim Packet Manifest v1",
+  "description": "PRD v1.3 §4.2/§4.4. 承诺 = sha256('AFR-PKG-v1' || salt || JCS(this)). 文件清单排除 {manifest.json, proofs/manifest.sig.json, anchors.json}。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "packet_id",
+    "lineage_id",
+    "disclosure_set_id",
+    "packet_version",
+    "previous_commitment",
+    "claim_ref",
+    "payment_ref",
+    "agent_run_id",
+    "created_at",
+    "files",
+    "anchors_expected",
+    "disclosure",
+    "signer_key_id",
+    "packet_anchoring",
+    "claim_status"
+  ],
+  "properties": {
+    "format_version": {
+      "const": "afr-packet/1"
+    },
+    "packet_id": {
+      "$ref": "#/$defs/hex16"
+    },
+    "lineage_id": {
+      "$ref": "#/$defs/hex16",
+      "description": "案件谱系随机标识，用于派生 ref_id"
+    },
+    "disclosure_set_id": {
+      "enum": [
+        "full",
+        "public"
+      ]
+    },
+    "packet_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "previous_commitment": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/hex32"
+        }
+      ],
+      "description": "前版包承诺；v1 为 null"
+    },
+    "claim_ref": {
+      "$ref": "#/$defs/hex16",
+      "description": "随机，不可从 Claim 编号推导；ClaimVault 幂等键成分"
+    },
+    "payment_ref": {
+      "$ref": "#/$defs/hex16"
+    },
+    "agent_run_id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128
+    },
+    "created_at": {
+      "$ref": "#/$defs/rfc3339"
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256",
+          "bytes",
+          "privacy_class"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^(?!manifest\\.json$)(?!proofs/manifest\\.sig\\.json$)(?!anchors\\.json$)[A-Za-z0-9_./-]+$",
+            "description": "相对路径；不得为排除集合三项；不得含 .. 或以 / 开头（由 CLI 二次校验）"
+          },
+          "sha256": {
+            "$ref": "#/$defs/hex32"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 52428800
+          },
+          "privacy_class": {
+            "enum": [
+              "Public",
+              "Restricted",
+              "TEE-only"
+            ]
+          }
+        }
+      }
+    },
+    "anchors_expected": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/$defs/anchorExpected"
+      },
+      "description": "AUTH uses signed mandate lineage + full; PACKET uses manifest lineage + disclosure_set. Anchor version is sequence, independent from packet_version."
+    },
+    "packet_anchoring": {
+      "enum": [
+        "anchored",
+        "not_anchored"
+      ],
+      "default": "anchored",
+      "description": "not_anchored 时 CLI 的 ANCHOR_PACKET 输出 Not Present（唯一允许 Not Present 的情形）"
+    },
+    "disclosure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scope_description",
+        "withheld_count",
+        "withheld_reasons"
+      ],
+      "properties": {
+        "scope_description": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "withheld_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "withheld_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 200
+          }
+        }
+      }
+    },
+    "signer_key_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{3,64}$",
+      "description": "Gateway 签名密钥 key_id，须在 trusted_signers.json 中"
+    },
+    "claim_status": {
+      "enum": [
+        "Under Review",
+        "Paid",
+        "Denied",
+        "Not Eligible",
+        "Rejected for Processing",
+        "Payout Failed",
+        "Needs Information"
+      ]
+    }
+  },
+  "$defs": {
+    "hex16": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{32}$"
+    },
+    "hex32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "rfc3339": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,9})?Z$"
+    },
+    "anchorExpected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "chain_id",
+        "contract",
+        "submitter",
+        "ref_id",
+        "version"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "AUTH",
+            "PACKET"
+          ]
+        },
+        "chain_id": {
+          "const": 1439
+        },
+        "contract": {
+          "$ref": "#/$defs/address"
+        },
+        "submitter": {
+          "$ref": "#/$defs/address"
+        },
+        "ref_id": {
+          "$ref": "#/$defs/hex32"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "tx_hash": {
+          "$ref": "#/$defs/hex32",
+          "description": "AUTH 必填；PACKET 不得出现（事后才知，放 anchors.json）"
+        },
+        "block_number": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "AUTH 必填；PACKET 不得出现"
+        },
+        "commitment": {
+          "$ref": "#/$defs/hex32",
+          "description": "AUTH 必填（Mandate 承诺）；PACKET 不得出现（即本包承诺，循环）"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "AUTH"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "tx_hash",
+              "block_number",
+              "commitment"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "PACKET"
+              }
+            }
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "tx_hash"
+                  ]
+                },
+                {
+                  "required": [
+                    "block_number"
+                  ]
+                },
+                {
+                  "required": [
+                    "commitment"
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}

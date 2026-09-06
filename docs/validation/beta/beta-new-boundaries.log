@@ -1,0 +1,10 @@
+
+ RUN  v2.1.9 <workspace>
+
+ ✓ packages/recorder/src/index.test.ts (5 tests) 88ms
+ ✓ packages/snapshot/src/index.test.ts (2 tests) 15ms
+
+ Test Files  2 passed (2)
+      Tests  7 passed (7)
+   Start at  22:46:12
+   Duration  495ms (transform 111ms, setup 0ms, collect 454ms, tests 103ms, environment 0ms, prepare 62ms)

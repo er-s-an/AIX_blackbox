@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "synthetic_inputs": true,
+  "real_model_calls": true,
+  "runs": 72,
+  "passed": 72,
+  "model": "glm-5.2",
+  "pipeline_digest": "0x1c550a5a9e0c8119b933aab0db4980d7b22d3df658799a695c1f2b468c7f59a2",
+  "results_directory": "runs/evaluation-2026-09-05T11-51-53-397Z",
+  "at": "2026-09-05T12:11:39.964Z"
+}

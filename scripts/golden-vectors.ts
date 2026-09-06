@@ -1,0 +1,6 @@
+import {writeFileSync,readFileSync} from 'node:fs';import {createHash} from 'node:crypto';
+// Independent reference implementation: no import from core, viem or canonicalize.
+const canonical=(v:any):string=>v===null||typeof v!=='object'?JSON.stringify(v):Array.isArray(v)?'['+v.map(canonical).join(',')+']':'{'+Object.keys(v).sort().map(k=>JSON.stringify(k)+':'+canonical(v[k])).join(',')+'}';
+const inputs=[{z:1,a:2},{a:[3,{z:0,a:true},null]},['中文','é','e\u0301'],{value:-0},{value:1e30},{value:1e-7},{value:0.000001},{value:1e21},{value:1e20},{'\r':'CR','1':'one','€':'Euro','😀':'emoji','ö':'o'},{text:'"\\\n\t\b\f\r'},[333333333.33333329,4.50,2e-3,1e-27],{amount:'8.000000000000000000'},{}];
+const vectors=inputs.map((input,i)=>{const text=canonical(input);return {id:'JCS-'+String(i+1).padStart(2,'0'),input,canonical:text,sha256:'0x'+createHash('sha256').update(text).digest('hex')};});
+const path='packages/core/vectors/jcs.json';if(process.argv.includes('--write'))writeFileSync(path,JSON.stringify(vectors,null,2)+'\n');else{const existing=JSON.parse(readFileSync(path,'utf8'));if(JSON.stringify(existing)!==JSON.stringify(vectors))throw new Error('INDEPENDENT_VECTOR_MISMATCH');}console.log({independent_vectors:vectors.length,pass:true});

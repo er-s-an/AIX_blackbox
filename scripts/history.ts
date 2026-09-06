@@ -1,0 +1,5 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
+import {clients,ensureTestnet,RPC,ARCHIVE} from '../packages/chain/src/index.ts';
+const d=JSON.parse(readFileSync('deployments/injective-testnet.json','utf8'));const results=[];
+for(const url of [RPC,ARCHIVE]){const {publicClient:p}=clients(undefined,url);try{await ensureTestnet(p);const r=await p.getTransactionReceipt({hash:d.spike.tx});const logs=await p.getLogs({address:d.contracts.EvidenceAnchor,fromBlock:BigInt(d.spike.block),toBlock:BigInt(d.spike.block)});results.push({rpc:url,receipt:r.status,block:Number(r.blockNumber),logs:logs.length});}catch(e:any){results.push({rpc:url,error:e.shortMessage||e.name});}}
+const ageHours=(Date.now()-Date.parse(d.spike.checked_at))/3600000;const result={at:new Date().toISOString(),ageHours,status:ageHours>=72&&results[1]?.receipt==='success'?'PASS':'PENDING',results};mkdirSync('spikes/s2-anchor-rpc/evidence',{recursive:true});writeFileSync('spikes/s2-anchor-rpc/evidence/history-'+Date.now()+'.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));

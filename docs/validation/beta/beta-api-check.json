@@ -1,0 +1,49 @@
+{
+  "at": "2026-09-05T14:46:13.805Z",
+  "rows": [
+    {
+      "name": "Token cannot read workspace",
+      "pass": true
+    },
+    {
+      "name": "Scoped SDK upload accepted",
+      "pass": true
+    },
+    {
+      "name": "Replay remains one event",
+      "pass": true
+    },
+    {
+      "name": "Altered sequence rejected",
+      "pass": true
+    },
+    {
+      "name": "Unknown token rejected",
+      "pass": true
+    },
+    {
+      "name": "User cannot revoke",
+      "pass": true
+    },
+    {
+      "name": "Draft can export without signature, payment, AI or decision",
+      "pass": true
+    },
+    {
+      "name": "Draft snapshot honestly incomplete",
+      "pass": true
+    },
+    {
+      "name": "Second snapshot preserves old version",
+      "pass": true
+    },
+    {
+      "name": "Old downloaded bytes unchanged",
+      "pass": true
+    },
+    {
+      "name": "Revoked token rejected",
+      "pass": true
+    }
+  ]
+}

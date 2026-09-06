@@ -1,0 +1,111 @@
+{
+  "at": "2026-09-05T11:36:08.463Z",
+  "scope": "Real testnet sessions; wall time includes retries and pauses, not five controlled consecutive benchmark rounds. UI signing not timed.",
+  "status": "PARTIAL",
+  "rows": [
+    {
+      "id": "0x724b1645118856ad6153d5d5cccf02ed",
+      "status": "Settled",
+      "claim": "Paid",
+      "auth_ms": 5480,
+      "agent_purchase_ms": 14863,
+      "analysis_first_attempt_ms": 213300,
+      "payout_ms": 5234,
+      "export_and_verify_ms": 7944,
+      "total_ms": 247901,
+      "analysis_failures": 1
+    },
+    {
+      "id": "0x26d6d2e3002b38722d135cdca3504da4",
+      "status": "Settled",
+      "claim": "Denied",
+      "auth_ms": 6081,
+      "agent_purchase_ms": 11828,
+      "analysis_first_attempt_ms": 223936,
+      "payout_ms": null,
+      "export_and_verify_ms": 7393,
+      "total_ms": 250547,
+      "analysis_failures": 1
+    },
+    {
+      "id": "0xb16ec952a824715d8ec1bde602a0ddc4",
+      "status": "Aborted",
+      "claim": "Not Eligible",
+      "auth_ms": 5686,
+      "agent_purchase_ms": null,
+      "analysis_first_attempt_ms": null,
+      "payout_ms": null,
+      "export_and_verify_ms": 6236,
+      "total_ms": 1730972,
+      "analysis_failures": 0
+    },
+    {
+      "id": "0xb3be383e7d1635d35395fe7a58f93a6d",
+      "status": "Settled",
+      "claim": "Paid",
+      "auth_ms": 5728,
+      "agent_purchase_ms": 15164,
+      "analysis_first_attempt_ms": 17378,
+      "payout_ms": 5401,
+      "export_and_verify_ms": 8902,
+      "total_ms": 53905,
+      "analysis_failures": 0
+    },
+    {
+      "id": "0x06f91c2a95e0cd8bb3203f5f7d8b3a55",
+      "status": "Settled",
+      "claim": "Paid",
+      "auth_ms": 5664,
+      "agent_purchase_ms": 16899,
+      "analysis_first_attempt_ms": 14704,
+      "payout_ms": 5862,
+      "export_and_verify_ms": 10568,
+      "total_ms": 55796,
+      "analysis_failures": 0
+    },
+    {
+      "id": "0x11624f7699b9dca9b8cf02b3484a7be6",
+      "status": "Settled",
+      "claim": "Denied",
+      "auth_ms": 6686,
+      "agent_purchase_ms": 11507,
+      "analysis_first_attempt_ms": 43530,
+      "payout_ms": null,
+      "export_and_verify_ms": 9217,
+      "total_ms": 72483,
+      "analysis_failures": 0
+    }
+  ],
+  "summary": {
+    "auth_ms": {
+      "n": 6,
+      "p50": 5686,
+      "p95": 6686
+    },
+    "agent_purchase_ms": {
+      "n": 5,
+      "p50": 14863,
+      "p95": 16899
+    },
+    "analysis_first_attempt_ms": {
+      "n": 5,
+      "p50": 43530,
+      "p95": 223936
+    },
+    "payout_ms": {
+      "n": 3,
+      "p50": 5401,
+      "p95": 5862
+    },
+    "export_and_verify_ms": {
+      "n": 6,
+      "p50": 7944,
+      "p95": 10568
+    },
+    "total_ms": {
+      "n": 6,
+      "p50": 72483,
+      "p95": 1730972
+    }
+  }
+}

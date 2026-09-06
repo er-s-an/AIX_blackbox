@@ -1,0 +1,77 @@
+{
+  "format_version": "afr-verify/1",
+  "profile": "snapshot",
+  "verified_at": "2026-09-05T14:23:23.156Z",
+  "mode": "online",
+  "trust_source": {
+    "repo_url": "urn:afr:local-worktree",
+    "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361"
+  },
+  "checks": [
+    {
+      "id": "FORMAT",
+      "status": "Pass",
+      "detail": "Snapshot format and signed inventory accepted",
+      "critical": true
+    },
+    {
+      "id": "INTEGRITY",
+      "status": "Pass",
+      "detail": "Every disclosed byte matches the inventory",
+      "critical": true
+    },
+    {
+      "id": "SIGNER_TRUST",
+      "status": "Pass",
+      "detail": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361)",
+      "critical": true
+    },
+    {
+      "id": "MANIFEST_SIG",
+      "status": "Pass",
+      "detail": "Collector signed this inventory",
+      "critical": true
+    },
+    {
+      "id": "COMPLETENESS",
+      "status": "Not Present",
+      "detail": "Only wrapped tools observed; collector cannot establish source completeness.; Authorization, order and tool data are supplied by the agent runtime; not attested.; No insurance eligibility or final claim decision established.",
+      "critical": true
+    },
+    {
+      "id": "ANCHOR_PACKET",
+      "status": "Not Present",
+      "detail": "Snapshot has no chain anchor; no pre-incident existence claim",
+      "critical": true
+    },
+    {
+      "id": "TEE_ATTESTATION",
+      "status": "Not Present",
+      "detail": "Hardware attestation not provided",
+      "critical": true
+    },
+    {
+      "id": "RECEIPT_1",
+      "status": "Pass",
+      "detail": "Actual ERC-20 transfer compared with the collected fields",
+      "critical": true
+    }
+  ],
+  "warnings": [
+    "Evidence snapshot, not a final claim packet. Unobserved activity and source truth cannot be established."
+  ],
+  "caps": [
+    "Collector signature is a receipt of disclosed materials, not hardware attestation or proof of complete source capture."
+  ],
+  "packet": {
+    "packet_id": "0x7c5c3d89fdb1621427167a91b1a88295",
+    "packet_version": 1,
+    "disclosure_set_id": "full",
+    "commitment": "0xefc4a50aac15b7ebb146ab8dba70f6ccb84042306c19e7cc320d433322846d7e"
+  },
+  "superseded": {
+    "packet": null,
+    "auth": null
+  },
+  "overall": "incomplete"
+}

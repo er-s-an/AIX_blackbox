@@ -1,0 +1,167 @@
+
+> agent-flight-recorder@0.0.0 live <workspace>
+> tsx scripts/live.ts
+
+{"step":"/login","status":"ok","elapsed_ms":165}
+{"step":"/cases","status":"Draft","ai_status":"Not Started","elapsed_ms":229}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/authorize","status":"Authorized","ai_status":"Not Started","elapsed_ms":121}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/purchase","status":"Settled","ai_status":"Not Started","elapsed_ms":18037}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/analysis","status":"Settled","ai_status":"Available","elapsed_ms":18325}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/decision","status":"Settled","ai_status":"Available","elapsed_ms":39}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/payout","status":"Settled","ai_status":"Available","elapsed_ms":4473}
+{"step":"/cases/0xc676bd93cce2d8ca5e716cdb303956e6/export","status":"Settled","ai_status":"Available","elapsed_ms":8319}
+{
+  "case_id": "0xc676bd93cce2d8ca5e716cdb303956e6",
+  "network": 1439,
+  "actual_model": "glm-5.2",
+  "payment_tx": "0xf557f666ac36f634dd758f6f3aab90b044bffbb3252bb8125e15f49df9fe3b4d",
+  "auth_anchor": {
+    "type": "AUTH",
+    "chain_id": 1439,
+    "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+    "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+    "ref_id": "0x8931da8423aa1fe803128b5cbc209389344a8ff44e65ca025a9c154161a82507",
+    "version": 1,
+    "tx_hash": "0x8efb801f2179ac311343b674a3aee0f46e23ffdccc9240cb6ea131fe8c96466c",
+    "block_number": 139100876,
+    "commitment": "0xe59f6ad1488ea2ad1bfa2646639ea1645f7f4bab20989f65b81cde195c672f38"
+  },
+  "payout": {
+    "tx_hash": "0x265bb67fd00ae661134f71b12128c37fce07e8bfdea80d8179c29d4d625ae1d0",
+    "block_number": 139100920,
+    "from": "0xad839616adf59a1d3eec8a816c8398846188bcb1",
+    "to": "0xfd8772ec5bcc4632d40c7a658ee65d122ef5ed8e",
+    "asset": "0x275d80af2b4ee79701f3dc2b8fdb586f7d39b973",
+    "amount": "8.000000000000000000",
+    "claim_ref": "0x9c3d0ce05d49d5a8c8a8f7c062e1d5f0",
+    "decision_version": 1
+  },
+  "packet": "runs/0xc676bd93cce2d8ca5e716cdb303956e6/packet-v1.zip",
+  "verification": {
+    "format_version": "afr-verify/1",
+    "verified_at": "2026-09-05T14:19:29.759Z",
+    "mode": "online",
+    "trust_source": {
+      "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+      "repo_url": "urn:afr:local-worktree",
+      "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+      "published_at": "2026-09-05T10:44:35.162Z",
+      "overridden_by_flag": false
+    },
+    "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+    "packet": {
+      "packet_id": "0x67ff4d7aed132fb3776baba8a47a084c",
+      "lineage_id": "0x6ed2864d0d3e798fa086dd6c7f838533",
+      "disclosure_set_id": "full",
+      "packet_version": 1,
+      "commitment": "0x69c2619da02d9b8de11ed22aa1d7226d34d2d82b6fd36e6fc4a3a972d27fd603"
+    },
+    "checks": [
+      {
+        "id": "FORMAT",
+        "status": "Pass",
+        "detail": "Schemas and safe ZIP container accepted",
+        "critical": true
+      },
+      {
+        "id": "INTEGRITY",
+        "status": "Pass",
+        "detail": "All disclosed file bytes match signed inventory",
+        "critical": true
+      },
+      {
+        "id": "MANIFEST_SIG",
+        "status": "Pass",
+        "detail": "Manifest digest and EIP-191 signature match",
+        "critical": true
+      },
+      {
+        "id": "MANDATE_SIG",
+        "status": "Pass",
+        "detail": "EIP-712 user signature and configured chain/domain/asset match",
+        "critical": true
+      },
+      {
+        "id": "LINKAGE",
+        "status": "Pass",
+        "detail": "Signed evidence, policy, scenario and object references agree",
+        "critical": true
+      },
+      {
+        "id": "EXEC_ENV",
+        "status": "Pass",
+        "detail": "Registered verifier signed matching input/output digests",
+        "critical": true,
+        "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+      },
+      {
+        "id": "TEE_ATTESTATION",
+        "status": "Not Present",
+        "detail": "Hardware attestation outside P0 scope",
+        "critical": false
+      },
+      {
+        "id": "SIGNER_TRUST",
+        "status": "Pass",
+        "detail": "Signer registration checked against installation trust",
+        "critical": true,
+        "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+      },
+      {
+        "id": "DISCLOSURE",
+        "status": "Pass",
+        "detail": "Declared disclosure set full",
+        "critical": true
+      },
+      {
+        "id": "ANCHOR_AUTH",
+        "status": "Pass",
+        "detail": "On-chain commitment and block depth match",
+        "critical": true
+      },
+      {
+        "id": "ANCHOR_PACKET",
+        "status": "Pass",
+        "detail": "On-chain commitment and block depth match",
+        "critical": true
+      },
+      {
+        "id": "RECEIPT_PAYMENT",
+        "status": "Pass",
+        "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+        "critical": true
+      },
+      {
+        "id": "RECEIPT_PAYOUT",
+        "status": "Pass",
+        "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+        "critical": true
+      },
+      {
+        "id": "AUTH_ORDER",
+        "status": "Pass",
+        "detail": "Signed authorization anchored before payment; effective version valid",
+        "critical": true
+      }
+    ],
+    "superseded": {
+      "packet": false,
+      "auth": false,
+      "latest_packet_version": 1
+    },
+    "warnings": [
+      "Local release candidate: trust configuration has not been published.",
+      "Local unpublished working tree; source commit is a base commit, not a release attestation."
+    ],
+    "caps": [
+      "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+      "Execution environment: verifier-signed statement (software; not hardware-attested)",
+      "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+    ],
+    "overall": "all_pass_in_scope"
+  },
+  "ai_status": "Available",
+  "operator_mode": "automated integration test, not a human UI signoff",
+  "metamask_ui": "NOT_RUN",
+  "recorded_at": "2026-09-05T14:19:33.069Z"
+}

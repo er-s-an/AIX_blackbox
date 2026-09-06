@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/verify_result.v1.json",
+  "title": "AFR verifier-cli machine-readable result v1",
+  "description": "PRD v1.3 §4.3。逐项四态；Superseded 与警告为包级；overall 不得为 'all_pass' 当任何 critical 项非 Pass。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "verified_at", "mode", "trust_source", "rpc", "packet", "checks", "superseded", "warnings", "overall", "caps"],
+  "properties": {
+    "format_version": { "const": "afr-verify/1" },
+    "verified_at": { "type": "string" },
+    "mode": { "enum": ["offline", "online"] },
+    "trust_source": {
+      "type": "object",
+      "required": ["path", "repo_url", "repo_commit", "published_at"],
+      "properties": {
+        "path": { "type": "string" },
+        "repo_url": { "type": "string" },
+        "repo_commit": { "type": "string" },
+        "published_at": { "type": "string" },
+        "overridden_by_flag": { "type": "boolean" }
+      }
+    },
+    "rpc": { "type": ["string", "null"] },
+    "packet": {
+      "type": "object",
+      "required": ["packet_id", "lineage_id", "disclosure_set_id", "packet_version", "commitment"],
+      "properties": {
+        "packet_id": { "type": "string" },
+        "lineage_id": { "type": "string" },
+        "disclosure_set_id": { "type": "string" },
+        "packet_version": { "type": "integer" },
+        "commitment": { "type": "string" }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "critical", "detail"],
+        "properties": {
+          "id": {
+            "enum": [
+              "FORMAT", "INTEGRITY", "MANIFEST_SIG", "SIGNER_TRUST", "LINKAGE", "MANDATE_SIG",
+              "AUTH_ORDER", "ANCHOR_AUTH", "ANCHOR_PACKET", "RECEIPT_PAYMENT", "RECEIPT_PAYOUT",
+              "EXEC_ENV", "TEE_ATTESTATION", "DISCLOSURE"
+            ]
+          },
+          "status": { "enum": ["Pass", "Fail", "Unknown", "Not Present"] },
+          "critical": { "type": "boolean", "description": "critical 项任一非 Pass 时 overall ≠ all_pass；TEE_ATTESTATION 在 P0 非 critical" },
+          "detail": { "type": "string", "maxLength": 500 },
+          "label": { "type": "string", "description": "固定人可读标签，如 'Execution environment: verifier-signed statement (software; not hardware-attested)'" }
+        }
+      }
+    },
+    "superseded": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["packet", "auth"],
+      "properties": {
+        "packet": { "type": ["boolean", "null"], "description": "链上同 (PACKET, ref_id) 存在更高版本；离线为 null" },
+        "auth": { "type": ["boolean", "null"], "description": "advisory：存在更新授权版本，不改变 AUTH_ORDER 结果" },
+        "latest_packet_version": { "type": ["integer", "null"] }
+      }
+    },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "overall": {
+      "enum": ["all_pass_in_scope", "failed", "incomplete"],
+      "description": "all_pass_in_scope：全部 critical 项 Pass 且无 Fail（TEE Not Present 允许）；failed：任一 Fail；incomplete：无 Fail 但有 Unknown 或 critical Not Present"
+    },
+    "caps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "固定输出 §4.3 验证结论上限句子，逐条打印"
+    }
+  }
+}

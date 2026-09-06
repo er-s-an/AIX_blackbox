@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/evidence.v1.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "evidence_id",
+    "kind",
+    "producer",
+    "content",
+    "content_hash",
+    "parent_hash",
+    "key_id",
+    "observed_at",
+    "privacy_class",
+    "signature"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "afr-evidence/1"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EV-[0-9a-f]{8}$"
+    },
+    "kind": {
+      "enum": [
+        "authorization",
+        "external_input",
+        "tool_request",
+        "payment",
+        "delivery",
+        "second_confirmation",
+        "rule_facts",
+        "payout",
+        "ai_input"
+      ]
+    },
+    "producer": {
+      "type": "string"
+    },
+    "content": {
+      "type": [
+        "object",
+        "string"
+      ]
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "parent_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "key_id": {
+      "type": "string"
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "privacy_class": {
+      "enum": [
+        "Public",
+        "Restricted",
+        "TEE-only"
+      ]
+    },
+    "signature": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{130}$"
+    }
+  }
+}

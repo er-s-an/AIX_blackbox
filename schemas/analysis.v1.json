@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/analysis.v1.json",
+  "title": "AFR AI analysis output v1",
+  "description": "PRD v1.3 §5.5。模型 structured output 目标 schema；评测器（evalkit）与验证页面按此做确定性校验。AI 不得输出硬字段结论（由规则引擎产出并附在 rule_facts 中，AI 只读）。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "primary_hypothesis",
+    "candidate_causes",
+    "evidence_refs",
+    "policy_refs",
+    "missing_evidence",
+    "contradictions",
+    "confidence_band",
+    "recommended_next_state",
+    "limitations",
+    "quotes",
+    "model_run"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "afr-analysis/1"
+    },
+    "primary_hypothesis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "category",
+        "statement"
+      ],
+      "properties": {
+        "category": {
+          "$ref": "#/$defs/category"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 10,
+          "maxLength": 1500,
+          "description": "必须以假设口吻，不得写作已证明事实（UI 强制前缀 '假设：'）"
+        }
+      }
+    },
+    "candidate_causes": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "category",
+          "supporting_refs",
+          "opposing_refs"
+        ],
+        "properties": {
+          "category": {
+            "$ref": "#/$defs/category"
+          },
+          "supporting_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/evidenceId"
+            }
+          },
+          "opposing_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/evidenceId"
+            }
+          },
+          "note": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/evidenceId"
+      }
+    },
+    "policy_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/clauseId"
+      }
+    },
+    "missing_evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "refs",
+          "description"
+        ],
+        "properties": {
+          "refs": {
+            "type": "array",
+            "minItems": 2,
+            "items": {
+              "$ref": "#/$defs/evidenceId"
+            }
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "confidence_band": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "recommended_next_state": {
+      "enum": [
+        "Under Review",
+        "Needs Information",
+        "Rejected for Processing",
+        "No Claim"
+      ]
+    },
+    "limitations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      }
+    },
+    "quotes": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "evidence_id",
+          "exact_substring",
+          "supports"
+        ],
+        "properties": {
+          "evidence_id": {
+            "$ref": "#/$defs/evidenceId"
+          },
+          "exact_substring": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 400,
+            "description": "必须在该证据的规范化文本中逐字存在（evalkit 做子串校验）"
+          },
+          "supports": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "该引文支持哪个结论（自由文本）"
+          }
+        }
+      }
+    },
+    "model_run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "model",
+        "prompt_template_version",
+        "run_index",
+        "input_digests",
+        "started_at",
+        "latency_ms"
+      ],
+      "properties": {
+        "model": {
+          "type": "string"
+        },
+        "prompt_template_version": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "seed": {
+          "type": "integer"
+        },
+        "run_index": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "input_digests": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^0x[0-9a-f]{64}$"
+          },
+          "description": "AI 所见每个输入片段的 sha256；与 verifier_statement.input_digest 的 Merkle-free 拼接摘要一致；ground-truth 文件哈希不得出现"
+        },
+        "started_at": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,9})?Z$"
+        },
+        "latency_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "output_tokens": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  },
+  "$defs": {
+    "category": {
+      "enum": [
+        "Prompt Injection",
+        "Agent Policy Deviation",
+        "Duplicate Execution",
+        "User-Authorized Action",
+        "Evidence Failure",
+        "Undetermined"
+      ]
+    },
+    "evidenceId": {
+      "type": "string",
+      "pattern": "^EV-[0-9a-f]{8}$",
+      "description": "去标签化：随机 8 hex，不得含类别词"
+    },
+    "clauseId": {
+      "type": "string",
+      "pattern": "^PC-[0-9]{3}$"
+    }
+  }
+}

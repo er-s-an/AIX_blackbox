@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/trusted_signers.v1.json",
+  "title": "AFR verifier trust configuration v1",
+  "description": "PRD v1.3 §4.3/§19。随 verifier-cli 仓库版本化发布；CLI 从安装目录读取，拒绝包内同名文件。内容由运营方自登记，'Pass' 含义是'由已登记密钥在有效期内签署'。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "format_version",
+    "published_at",
+    "repo",
+    "chain",
+    "contracts",
+    "signers",
+    "verifier_programs"
+  ],
+  "properties": {
+    "format_version": {
+      "const": "afr-trust/1"
+    },
+    "published_at": {
+      "$ref": "#/$defs/rfc3339"
+    },
+    "repo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "url",
+        "commit"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "dirty": {
+          "type": "boolean"
+        },
+        "working_tree_digest": {
+          "type": "string"
+        }
+      }
+    },
+    "chain": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chain_id",
+        "name",
+        "default_rpc",
+        "confirmation_depth",
+        "ordering_gap"
+      ],
+      "properties": {
+        "chain_id": {
+          "const": 1439
+        },
+        "name": {
+          "const": "Injective EVM Testnet"
+        },
+        "default_rpc": {
+          "type": "string",
+          "format": "uri",
+          "description": "默认归档端点（ADR-016）"
+        },
+        "fallback_rpcs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "confirmation_depth": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "description": "D"
+        },
+        "ordering_gap": {
+          "type": "integer",
+          "minimum": 1,
+          "default": 1,
+          "description": "G"
+        }
+      }
+    },
+    "contracts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_anchor",
+        "claim_vault",
+        "test_token"
+      ],
+      "properties": {
+        "evidence_anchor": {
+          "$ref": "#/$defs/address"
+        },
+        "claim_vault": {
+          "$ref": "#/$defs/address"
+        },
+        "test_token": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "address",
+            "symbol",
+            "decimals"
+          ],
+          "properties": {
+            "address": {
+              "$ref": "#/$defs/address"
+            },
+            "symbol": {
+              "const": "AFR-TEST-USD"
+            },
+            "decimals": {
+              "const": 18
+            }
+          }
+        }
+      }
+    },
+    "signers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "key_id",
+          "role",
+          "address",
+          "valid_from",
+          "status"
+        ],
+        "properties": {
+          "key_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]{3,64}$"
+          },
+          "role": {
+            "enum": [
+              "gateway",
+              "verifier",
+              "operator",
+              "scenario_author"
+            ]
+          },
+          "address": {
+            "$ref": "#/$defs/address"
+          },
+          "valid_from": {
+            "$ref": "#/$defs/rfc3339"
+          },
+          "valid_to": {
+            "$ref": "#/$defs/rfc3339",
+            "description": "缺省=仍有效；轮换后填入并将 status 置 retired"
+          },
+          "status": {
+            "enum": [
+              "active",
+              "retired",
+              "revoked"
+            ]
+          }
+        }
+      }
+    },
+    "verifier_programs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "program_hash",
+          "name",
+          "version",
+          "build_record"
+        ],
+        "properties": {
+          "program_hash": {
+            "$ref": "#/$defs/hex32",
+            "description": "构建产物摘要（非可复现构建承诺）"
+          },
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "build_record": {
+            "type": "string",
+            "description": "构建记录 URL 或路径（commit、工具链版本）"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "address": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{40}$"
+    },
+    "hex32": {
+      "type": "string",
+      "pattern": "^0x[0-9a-f]{64}$"
+    },
+    "rfc3339": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,9})?Z$"
+    }
+  }
+}

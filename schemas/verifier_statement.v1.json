@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/verifier_statement.v1.json",
+  "title": "AFR software-level execution-environment statement v1",
+  "description": "PRD v1.3 §4.1/§20 步骤 4。验证者密钥签署的声明：'为这组输入/输出背书，程序哈希在白名单'。不证明程序实际执行。签名 = EIP-191 personal_sign over sha256(JCS(statement))。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "type", "statement", "signature"],
+  "properties": {
+    "format_version": { "const": "afr-execenv/1" },
+    "type": { "enum": ["software", "tee"], "description": "P0 恒为 software；tee 时 attestation 字段必填（P1）" },
+    "statement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["program_hash", "program_name", "program_version", "input_digest", "output_digest", "rule_facts_digest", "issued_at", "key_id"],
+      "properties": {
+        "program_hash": { "$ref": "#/$defs/hex32" },
+        "program_name": { "type": "string" },
+        "program_version": { "type": "string" },
+        "input_digest": { "$ref": "#/$defs/hex32", "description": "sha256(JCS(sorted input_digests[]))；与 analysis.model_run.input_digests 对应" },
+        "output_digest": { "$ref": "#/$defs/hex32", "description": "sha256(JCS(analysis.json 去掉 model_run.latency_ms/started_at 后))" },
+        "rule_facts_digest": { "$ref": "#/$defs/hex32", "description": "规则引擎输出（硬字段）对象的摘要；evalkit 用它做'硬字段未被改写'的字节比对" },
+        "issued_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,9})?Z$" },
+        "key_id": { "type": "string", "pattern": "^[a-z0-9-]{3,64}$" }
+      }
+    },
+    "signature": { "type": "string", "pattern": "^0x[0-9a-f]{130}$" },
+    "attestation": {
+      "type": "object",
+      "description": "P1：硬件 TEE quote 与 collateral；P0 不出现。CLI 在 P0 对 TEE_ATTESTATION 输出 Not Present。",
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    { "if": { "properties": { "type": { "const": "tee" } } }, "then": { "required": ["attestation"] } },
+    { "if": { "properties": { "type": { "const": "software" } } }, "then": { "not": { "required": ["attestation"] } } }
+  ],
+  "$defs": { "hex32": { "type": "string", "pattern": "^0x[0-9a-f]{64}$" } }
+}

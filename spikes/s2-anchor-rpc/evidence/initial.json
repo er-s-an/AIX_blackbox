@@ -1,0 +1,71 @@
+{
+  "chain_id": 1439,
+  "created_at": "2026-09-05T10:39:35.512Z",
+  "deployer": "0x57aeFA079583305653aEbbE7ef0fd168f7A5A16c",
+  "contracts": {
+    "EvidenceAnchor": "0x337cc6c6de98de52953b611a504482b996e99d98",
+    "AFRTestUSD": "0x275d80af2b4ee79701f3dc2b8fdb586f7d39b973",
+    "ClaimVault": "0xad839616adf59a1d3eec8a816c8398846188bcb1"
+  },
+  "transactions": [
+    {
+      "kind": "deploy",
+      "name": "EvidenceAnchor",
+      "tx": "0x20484c22c1e0774885fa5a3952d1b077d83fd731855a57d0d0c25ad00847f3c7",
+      "block": 139084786,
+      "gas_used": "333598",
+      "gas_price": "160000000"
+    },
+    {
+      "kind": "deploy",
+      "name": "AFRTestUSD",
+      "tx": "0x33b927d5fc19eada3f49098daecc86513e6e659d37a4fe0b5bd032986ad80cd6",
+      "block": 139084790,
+      "gas_used": "602496",
+      "gas_price": "160000000"
+    },
+    {
+      "kind": "deploy",
+      "name": "ClaimVault",
+      "tx": "0x68aef157a795daba02bf08b5c43c42faf50add93091078c77880a96523b544bb",
+      "block": 139084794,
+      "gas_used": "371824",
+      "gas_price": "160000000"
+    },
+    {
+      "kind": "fund-test-gas",
+      "address": "0x07D61D8fF305d86cB6C4f0111D2E52706d889678",
+      "tx": "0x5719c43a0c6795c27a07c79fba97cbad6a45e82769ecd183cf070ea8ab92943e"
+    },
+    {
+      "kind": "fund-test-gas",
+      "address": "0xcDB695940a8558068867f63b6E861F8B1E190a34",
+      "tx": "0x66250a57ee62f913a20f4c0bb13dae5071763bd05f7113427a9583e4c355583e"
+    },
+    {
+      "kind": "mint-test-token",
+      "to": "0x07D61D8fF305d86cB6C4f0111D2E52706d889678",
+      "tx": "0x5e239499ec4cb4dd99e146342951aa0f4fbf4e3779da45cba632a1b9135967f2"
+    },
+    {
+      "kind": "mint-test-token",
+      "to": "0xad839616adf59a1d3eec8a816c8398846188bcb1",
+      "tx": "0x5c2ce940ced28c5ea82189a26b832178c3866f2625400510bbe639f8a66ed263"
+    }
+  ],
+  "spike": {
+    "tx": "0xfbba64f011e6216d5d4ceaf454a89b2898b7ca69e5955e69030558a30ad581a3",
+    "block": 139085153,
+    "checked_at": "2026-09-05T10:44:44.879Z",
+    "submitter": "0x07D61D8fF305d86cB6C4f0111D2E52706d889678",
+    "ref": "0xdd0f8a223987a8eaee4d82a3a9fd657bec9d9d5c87df39ab45b3aec0c05bc66c",
+    "commitment": "0x5544c7fbf35be29b74788d13fb9992087bc570bc20666fe5b9aeee0990d9f079",
+    "readback": true,
+    "idempotent_tx": "0x27a4484bb713e3944c4ea9a2d321802da7175d40ad6d24bc36604b018d41a719",
+    "idempotent_no_event": true,
+    "conflict_rejected": true,
+    "conflict_tx": "0xb2885717807e7931b1bcf96ba3200e6649b49a0200af5a3eef1704b330387c70",
+    "history_72h": "PENDING",
+    "history_due_at": "2026-09-08T10:44:44.879Z"
+  }
+}

@@ -1,0 +1,1147 @@
+{
+  "at": "2026-09-05T12:22:47.270Z",
+  "ai": {
+    "status": "PASS",
+    "synthetic_inputs": true,
+    "real_model_calls": true,
+    "runs": 72,
+    "passed": 72,
+    "model": "glm-5.2",
+    "pipeline_digest": "0x1c550a5a9e0c8119b933aab0db4980d7b22d3df658799a695c1f2b468c7f59a2",
+    "results_directory": "runs/evaluation-2026-09-05T11-51-53-397Z",
+    "at": "2026-09-05T12:11:39.964Z"
+  },
+  "cases": [
+    {
+      "id": "0x7c7ef848f969c655a37ae2330459132f",
+      "status": "Settled",
+      "claim_status": "Paid",
+      "payment_tx": "0xbedd8246a5539131c4b64d04bddd1ad27357b7534a136e0402771304a73d355f",
+      "payout_tx": "0xb06014a29cc2278444b87988176cb073ba0d8701e29eea38b0248ff93d4c5ea2",
+      "packet": "runs/0x7c7ef848f969c655a37ae2330459132f/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T12:17:21.389Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0x91c51e362b20180eb5e433d756843efa",
+          "lineage_id": "0xb861e021ba8bad6dd265482bf6306364",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0xf74d10c2c4e507500674b5f691fda2664df622c263cecf5a2886c376730b839f"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x3cb14d616922c6114843b8d620e8316d82f7f7e8bc7603e4a9cd1f9c9dc233fa",
+        "version": 1,
+        "tx_hash": "0x41f4bf2cbd8cc99ac217d92a38af56283a3dc268998a8bc220806c59d3684ba9",
+        "block_number": 139091962,
+        "commitment": "0xf74d10c2c4e507500674b5f691fda2664df622c263cecf5a2886c376730b839f"
+      }
+    },
+    {
+      "id": "0x48d71f578160c5fa7aefbe431ce92f71",
+      "status": "Aborted",
+      "claim_status": "Not Eligible",
+      "packet": "runs/0x48d71f578160c5fa7aefbe431ce92f71/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T12:05:50.757Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0xd14ff33dee42ab868cac1405ce6673c8",
+          "lineage_id": "0xe2566f745f39c002a59cf10383a80446",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0x16829ee4222396c3bd0b1b3e044668cfaa90321d5c4696b63654adf25f0404b9"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Not Present",
+            "detail": "No AI execution statement",
+            "critical": false
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Not Present",
+            "detail": "Authorization/payment block unavailable",
+            "critical": false
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x234b8cc3dc696cd945a8c0102e33b9ed4c667cfa6f027f9ac698080797cb2d92",
+        "version": 1,
+        "tx_hash": "0x6ed0dc87d705f632f2160d798e4e7817f6315705dc6852c5b634b187383053f5",
+        "block_number": 139091116,
+        "commitment": "0x16829ee4222396c3bd0b1b3e044668cfaa90321d5c4696b63654adf25f0404b9"
+      }
+    },
+    {
+      "id": "0x724b1645118856ad6153d5d5cccf02ed",
+      "status": "Settled",
+      "claim_status": "Paid",
+      "payment_tx": "0x2a2d2f2b296d7ffe87b04184abecf663202f2a6cf1151e7b6d73b321f64bd950",
+      "payout_tx": "0x58949557682bc56c4425953b5c5b2f568bdd954cace53e2a6afc4ee5e11a8aab",
+      "packet": "runs/0x724b1645118856ad6153d5d5cccf02ed/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:34:16.640Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0xf0e094bf348c102086f91cf7d8b1f812",
+          "lineage_id": "0xb18935c6fb8a4378b9acddd5917ea83a",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0xdfed938fca5d922bd1416fbc8ffa542463545c3ca51356f002af7b3d96ebc5b3"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x056d349e19533aa251b400eabddabf3bdd4dd540ba659ded993f4bfb183410fe",
+        "version": 1,
+        "tx_hash": "0x35f0d323db93c2bee61759c39cc3385996eb0ffef7699aee6dfdab84252fddd1",
+        "block_number": 139088798,
+        "commitment": "0xdfed938fca5d922bd1416fbc8ffa542463545c3ca51356f002af7b3d96ebc5b3"
+      }
+    },
+    {
+      "id": "0x26d6d2e3002b38722d135cdca3504da4",
+      "status": "Settled",
+      "claim_status": "Denied",
+      "payment_tx": "0xce759716a3836d20ba17c953d858727adf97e4762a196faaab7769789510d1aa",
+      "packet": "runs/0x26d6d2e3002b38722d135cdca3504da4/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:33:34.371Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0x085db3f4a5b98eb519d64958dc06bc04",
+          "lineage_id": "0xd93ee2356fc737904054a5d371bcca8e",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0x9423db1246922bc964cd3176dcb3c77a6a473f3990e71c5a3e8a9fe67689e042"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x7504c801ac1eab0196019924712f280f79003692ac44fc7c3ea3b3e16e96bc8d",
+        "version": 1,
+        "tx_hash": "0x2d449bcdef0252e5735a2b3d5d2af3a168622e93ad6943948535844e0587d889",
+        "block_number": 139088747,
+        "commitment": "0x9423db1246922bc964cd3176dcb3c77a6a473f3990e71c5a3e8a9fe67689e042"
+      }
+    },
+    {
+      "id": "0xb16ec952a824715d8ec1bde602a0ddc4",
+      "status": "Aborted",
+      "claim_status": "Not Eligible",
+      "packet": "runs/0xb16ec952a824715d8ec1bde602a0ddc4/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:32:57.579Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0xb9772c238a04641d527a86a7904bd0c5",
+          "lineage_id": "0xf5c3cb0fb6755442e028603da7cdaa7f",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0x7149db872513d75d10c20bb749af46ea35bb8ccbec935505a52e4633e4000906"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Not Present",
+            "detail": "No AI execution statement",
+            "critical": false
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Not Present",
+            "detail": "Authorization/payment block unavailable",
+            "critical": false
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x70be97d569cabd4c4c86fe0d0dba5374cd38a29439ff90f1f8df9a482cb0c7e4",
+        "version": 1,
+        "tx_hash": "0x83267a1d081a23a0c891fc2574e33abf6dfb84a86229d95b26d9155516d3ec80",
+        "block_number": 139088702,
+        "commitment": "0x7149db872513d75d10c20bb749af46ea35bb8ccbec935505a52e4633e4000906"
+      }
+    },
+    {
+      "id": "0xb3be383e7d1635d35395fe7a58f93a6d",
+      "status": "Settled",
+      "claim_status": "Paid",
+      "payment_tx": "0x272ee03a96041608209d1360a9ef5e631c4850a705bdfebc253c796a936be09c",
+      "payout_tx": "0xe7d35db2bf62cbe3ad08e4e30465cff8cc01a5847f5d7d074584983ec9d1d6a4",
+      "packet": "runs/0xb3be383e7d1635d35395fe7a58f93a6d/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:27:55.692Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0xb9cb7ed43df01c13dda37aecc4fdb1fe",
+          "lineage_id": "0x33f614faec40919da0ca559122cebac5",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0x29c378c4c4c5725bdf4b0ddbc130be2df3564ac9a71ae16ce5638d0da67b5e05"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0xbac208bec6865de76d476a787967b46d49688b7ee91bc080a2dcfc82ba886469",
+        "version": 1,
+        "tx_hash": "0xdcaf70d195611938ed00feca340ec7eae2f4b97b6895eb03245aa1c00af722df",
+        "block_number": 139088332,
+        "commitment": "0x29c378c4c4c5725bdf4b0ddbc130be2df3564ac9a71ae16ce5638d0da67b5e05"
+      }
+    },
+    {
+      "id": "0x06f91c2a95e0cd8bb3203f5f7d8b3a55",
+      "status": "Settled",
+      "claim_status": "Paid",
+      "payment_tx": "0x61d05d697c20be0e2d2a3e543a8c7b81511bda18619a991dd54c3e9e217c98fa",
+      "payout_tx": "0x648bd9e6857703cd6b85fcce8b4e2ba4f989e2d38faca731ad06a5a93355101c",
+      "packet": "runs/0x06f91c2a95e0cd8bb3203f5f7d8b3a55/packet-v2.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:17:39.986Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0x7a288d89116db7e2ed2025a40bf3ff14",
+          "lineage_id": "0xbf536f017a458a4b5f4e9a2aaf5e821d",
+          "disclosure_set_id": "full",
+          "packet_version": 2,
+          "commitment": "0x072c9d065372d20fa363aed4dfb14a8dc8303152d970cfeee272fb8f0bb90e22"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 2
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0xf4e1f0b3a69dee23bff93ff6fb48f7d5168562815ca252c1c35c0443b32b291f",
+        "version": 2,
+        "tx_hash": "0x4d2bf5b3d53b939932efa66d81ec1c9a7e38110c85b7fc2314afea13b8dc801a",
+        "block_number": 139087578,
+        "commitment": "0x072c9d065372d20fa363aed4dfb14a8dc8303152d970cfeee272fb8f0bb90e22"
+      }
+    },
+    {
+      "id": "0x11624f7699b9dca9b8cf02b3484a7be6",
+      "status": "Settled",
+      "claim_status": "Denied",
+      "payment_tx": "0x4be26f328e40708b6001e321035084bbb8aa4c09898f9400ca1eb75e29d10a5e",
+      "packet": "runs/0x11624f7699b9dca9b8cf02b3484a7be6/packet-v1.zip",
+      "verification": {
+        "format_version": "afr-verify/1",
+        "verified_at": "2026-09-05T11:21:08.625Z",
+        "mode": "online",
+        "trust_source": {
+          "path": "<workspace>/packages/verifier-cli/trust/trusted_signers.json",
+          "repo_url": "urn:afr:local-worktree",
+          "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+          "published_at": "2026-09-05T10:44:35.162Z",
+          "overridden_by_flag": false
+        },
+        "rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+        "packet": {
+          "packet_id": "0x83c614dba23e2002e8397ae1fb70c49e",
+          "lineage_id": "0xb647bed3d51751dd61389bc992464d8d",
+          "disclosure_set_id": "full",
+          "packet_version": 1,
+          "commitment": "0x352959b79b0314f3839b5d99ea49eaa5e2feb95e8b5b510096790d0f4beb4318"
+        },
+        "checks": [
+          {
+            "id": "FORMAT",
+            "status": "Pass",
+            "detail": "Schemas and safe ZIP container accepted",
+            "critical": true
+          },
+          {
+            "id": "INTEGRITY",
+            "status": "Pass",
+            "detail": "All disclosed file bytes match signed inventory",
+            "critical": true
+          },
+          {
+            "id": "MANIFEST_SIG",
+            "status": "Pass",
+            "detail": "Manifest digest and EIP-191 signature match",
+            "critical": true
+          },
+          {
+            "id": "MANDATE_SIG",
+            "status": "Pass",
+            "detail": "EIP-712 user signature and configured chain/domain/asset match",
+            "critical": true
+          },
+          {
+            "id": "LINKAGE",
+            "status": "Pass",
+            "detail": "Signed evidence, policy, scenario and object references agree",
+            "critical": true
+          },
+          {
+            "id": "EXEC_ENV",
+            "status": "Pass",
+            "detail": "Registered verifier signed matching input/output digests",
+            "critical": true,
+            "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+          },
+          {
+            "id": "TEE_ATTESTATION",
+            "status": "Not Present",
+            "detail": "Hardware attestation outside P0 scope",
+            "critical": false
+          },
+          {
+            "id": "SIGNER_TRUST",
+            "status": "Pass",
+            "detail": "Signer registration checked against installation trust",
+            "critical": true,
+            "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+          },
+          {
+            "id": "DISCLOSURE",
+            "status": "Pass",
+            "detail": "Declared disclosure set full",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_AUTH",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "ANCHOR_PACKET",
+            "status": "Pass",
+            "detail": "On-chain commitment and block depth match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYMENT",
+            "status": "Pass",
+            "detail": "Actual ERC-20 transfer and signed payment/decision fields match",
+            "critical": true
+          },
+          {
+            "id": "RECEIPT_PAYOUT",
+            "status": "Not Present",
+            "detail": "No transaction in this outcome profile",
+            "critical": false
+          },
+          {
+            "id": "AUTH_ORDER",
+            "status": "Pass",
+            "detail": "Signed authorization anchored before payment; effective version valid",
+            "critical": true
+          }
+        ],
+        "superseded": {
+          "packet": false,
+          "auth": false,
+          "latest_packet_version": 1
+        },
+        "warnings": [
+          "Local unpublished working tree; source commit is a base commit, not a release attestation."
+        ],
+        "caps": [
+          "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+          "Execution environment: verifier-signed statement (software; not hardware-attested)",
+          "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+        ],
+        "overall": "all_pass_in_scope"
+      },
+      "anchor": {
+        "type": "PACKET",
+        "chain_id": 1439,
+        "contract": "0x337cc6c6de98de52953b611a504482b996e99d98",
+        "submitter": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+        "ref_id": "0x775151f466b50f71aae11fe552d8bf50790fa688db2770ea6dcef887806eac43",
+        "version": 1,
+        "tx_hash": "0xbd92b95a8cdbd5f8ab913c4f6d9fc306609bdb71561282e8c933e2d6b3972a8d",
+        "block_number": 139087833,
+        "commitment": "0x352959b79b0314f3839b5d99ea49eaa5e2feb95e8b5b510096790d0f4beb4318"
+      }
+    },
+    {
+      "id": "0xa414875f2857da20cf520669427f1c5a",
+      "status": "Aborted",
+      "claim_status": null
+    }
+  ],
+  "external_gates": [
+    "MetaMask UI",
+    "human video signoff",
+    "T+72h",
+    "official submission/publication"
+  ]
+}

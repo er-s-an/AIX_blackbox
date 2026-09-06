@@ -1,0 +1,22 @@
+
+> agent-flight-recorder@0.0.0 negatives <workspace>
+> tsx scripts/negatives.ts
+
+BASE PASS all_pass_in_scope
+N01 PASS failed
+N02 PASS failed
+N03 PASS incomplete
+N04 PASS failed
+N05 PASS all_pass_in_scope
+N06 PASS all_pass_in_scope
+N07 PASS failed
+N08 PASS failed
+N09 PASS failed
+N10 PASS failed
+N11 PASS failed
+X01 PASS failed
+X02 PASS failed
+X03 PASS failed
+X04 PASS all_pass_in_scope
+X05 PASS failed
+17/17

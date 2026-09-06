@@ -1,0 +1,6 @@
+{
+  "name": "@afr/verifier-svc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module"
+}

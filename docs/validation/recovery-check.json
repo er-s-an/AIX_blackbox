@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-05T12:19:32.874Z",
+  "case": "0x7c7ef848f969c655a37ae2330459132f",
+  "payment_wal_matches_hash": true,
+  "replay": "duplicate transaction rejected",
+  "no_additional_nonce": true,
+  "payout_retry_same_hash": true,
+  "payout_wal_matches_hash": true
+}

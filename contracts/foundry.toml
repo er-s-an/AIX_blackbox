@@ -1,0 +1,24 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+allow_paths = ["../node_modules"]
+remappings = ["@openzeppelin/contracts/=../node_modules/@openzeppelin/contracts/", "forge-std/=lib/forge-std/src/"]
+test = "test"
+script = "script"
+solc_version = "0.8.28"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 200
+via_ir = false
+fuzz = { runs = 512 }
+fs_permissions = [{ access = "read", path = "./" }]
+
+[rpc_endpoints]
+injective_testnet = "${RPC_URL}"
+injective_testnet_archive = "${RPC_ARCHIVE_URL}"
+# NOTE: mainnet (1776) intentionally absent. Deploy.s.sol reverts on chainid != 1439.
+
+[fmt]
+line_length = 100
+tab_width = 4

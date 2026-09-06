@@ -1,0 +1,2 @@
+import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';import {parse} from 'dotenv';import {modelCall} from '../packages/agent/src/index.ts';
+const e=parse(readFileSync('.secrets/gateway.env'));const result=await modelCall({baseUrl:e.AI_BASE_URL!,apiKey:e.AI_API_KEY!,model:e.AI_MODEL!,recordDir:'runs/ai-probe'},[{role:'user',content:'Return JSON with a single field available set to true.'}],undefined,true);console.log(JSON.stringify({model:result.model,visible_response:result.message.content,latency_ms:result.latency_ms,usage:result.usage}));

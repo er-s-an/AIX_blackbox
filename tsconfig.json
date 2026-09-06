@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "declaration": false
+  },
+  "include": [
+    "packages/**/*.ts",
+    "apps/gateway/**/*.ts",
+    "apps/operator/**/*.ts",
+    "apps/verifier-svc/**/*.ts",
+    "apps/fixture-server/**/*.ts",
+    "scripts/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "apps/web"
+  ]
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "name": "unauthenticated case read",
+    "expected": 401,
+    "actual": 401,
+    "pass": true
+  },
+  {
+    "name": "wrong password",
+    "expected": 401,
+    "actual": 401,
+    "pass": true
+  },
+  {
+    "name": "user cannot approve",
+    "expected": 403,
+    "actual": 403,
+    "pass": true
+  },
+  {
+    "name": "user cannot pay",
+    "expected": 403,
+    "actual": 403,
+    "pass": true
+  },
+  {
+    "name": "cross origin mutation",
+    "expected": 403,
+    "actual": 403,
+    "pass": true
+  },
+  {
+    "name": "user cannot invoke operator reconciliation",
+    "expected": 403,
+    "actual": 403,
+    "pass": true
+  },
+  {
+    "name": "unauthorized operator service",
+    "pass": true,
+    "actual": 401
+  }
+]

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://afr.example/schemas/scenario.v1.json",
+  "title": "AFR scenario.json v1",
+  "description": "PRD v1.3 §16.1。场景作者签名的合成场景定义：ValidRiskReport 契约（逐条标注 rule/ai）、供应商登记表、合成保障条款引用。进入包并列入文件清单。ground-truth 不在此文件中。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["format_version", "scenario_id", "kind", "contract", "supplier_registry", "policy", "author_key_id", "signature"],
+  "properties": {
+    "format_version": { "const": "afr-scenario/1" },
+    "scenario_id": { "type": "string", "pattern": "^S-[0-9a-f]{8}$", "description": "去标签化随机 ID；不得含 'injection' 等类别词" },
+    "kind": { "enum": ["live", "fixture"], "description": "live = 现场可运行；fixture = 固定夹具（如拒赔对照）" },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version", "clauses"],
+      "properties": {
+        "name": { "const": "ValidRiskReport" },
+        "version": { "type": "string" },
+        "clauses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["clause_id", "text", "evaluator"],
+            "properties": {
+              "clause_id": { "type": "string", "pattern": "^VC-[0-9]{2}$" },
+              "text": { "type": "string", "maxLength": 500 },
+              "evaluator": { "enum": ["rule", "ai"] },
+              "rule_spec": { "type": "string", "description": "evaluator=rule 时的可执行规则描述（结构检查 / 时间比较 / 哈希比对 / 集合成员）" }
+            }
+          }
+        }
+      }
+    },
+    "supplier_registry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["registry_version", "suppliers"],
+      "properties": {
+        "registry_version": { "type": "string" },
+        "suppliers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["supplier_id", "display_name", "payee", "declared_capabilities", "endpoint"],
+            "properties": {
+              "supplier_id": { "type": "string", "pattern": "^SUP-[0-9a-f]{6}$" },
+              "display_name": { "type": "string" },
+              "payee": { "type": "string", "pattern": "^0x[0-9a-f]{40}$" },
+              "declared_capabilities": { "type": "array", "items": { "type": "string" } },
+              "endpoint": { "type": "string", "format": "uri", "description": "本地 fixture 服务器 URL；合成攻击页面也在此" }
+            }
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["policy_id", "policy_hash", "coverage_cap"],
+      "properties": {
+        "policy_id": { "type": "string" },
+        "policy_hash": { "type": "string", "pattern": "^0x[0-9a-f]{64}$", "description": "合成条款文件 sha256，与 Mandate.policy_hash 一致" },
+        "coverage_cap": { "type": "string", "pattern": "^[0-9]+\\.[0-9]{18}$", "description": "演示保障上限，P0 = Mandate total_budget" }
+      }
+    },
+    "author_key_id": { "type": "string", "pattern": "^[a-z0-9-]{3,64}$", "description": "role=scenario_author" },
+    "signature": { "type": "string", "pattern": "^0x[0-9a-f]{130}$" }
+  }
+}

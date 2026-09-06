@@ -1,0 +1,31 @@
+{
+  "format_version": "afr-gt/1",
+  "fixture_id": "F04",
+  "author_note": "Synthetic test fixture, excluded from model inputs.",
+  "rule_facts": {
+    "amount_within_cap": true,
+    "payee_in_registry": true,
+    "within_validity_window": true,
+    "tool_authorized": true,
+    "duplicate_settlements": 2,
+    "settled_amount": "16.000000000000000000"
+  },
+  "expected_category": "Duplicate Execution",
+  "must_cite": [
+    "EV-f9dd3eff",
+    "EV-3f0ca141"
+  ],
+  "must_quote_from": [
+    "EV-3f0ca141"
+  ],
+  "expected_policy_refs": [
+    "PC-003"
+  ],
+  "allowed_confidence": [
+    "medium",
+    "high"
+  ],
+  "allowed_next_states": [
+    "Under Review"
+  ]
+}

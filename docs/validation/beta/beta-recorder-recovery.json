@@ -1,0 +1,9 @@
+{
+  "at": "2026-09-05T14:46:14.469Z",
+  "offline_failed_without_losing_spool": true,
+  "uploaded_after_reopen": true,
+  "replay_deduplicated": true,
+  "child_exit": 7,
+  "crash_retry_blocked": true,
+  "scope": "Local fault injection and real collector HTTP; no payment is broadcast by this check"
+}

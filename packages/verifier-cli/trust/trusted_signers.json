@@ -1,0 +1,67 @@
+{
+  "format_version": "afr-trust/1",
+  "published_at": "2026-09-05T10:44:35.162Z",
+  "repo": {
+    "url": "urn:afr:local-worktree",
+    "commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+    "dirty": true,
+    "working_tree_digest": "0xd535c41ca21ed937234ecb18c180a1a54ddd1bbac9a6730ace38fc45033ed248"
+  },
+  "chain": {
+    "chain_id": 1439,
+    "name": "Injective EVM Testnet",
+    "default_rpc": "https://testnet.evm.archival.chain.virtual.json-rpc.injective.network/",
+    "fallback_rpcs": [
+      "https://k8s.testnet.json-rpc.injective.network/"
+    ],
+    "confirmation_depth": 1,
+    "ordering_gap": 1
+  },
+  "contracts": {
+    "evidence_anchor": "0x337cc6c6de98de52953b611a504482b996e99d98",
+    "claim_vault": "0xad839616adf59a1d3eec8a816c8398846188bcb1",
+    "test_token": {
+      "address": "0x275d80af2b4ee79701f3dc2b8fdb586f7d39b973",
+      "symbol": "AFR-TEST-USD",
+      "decimals": 18
+    }
+  },
+  "signers": [
+    {
+      "key_id": "gateway-demo-1",
+      "role": "gateway",
+      "address": "0x07d61d8ff305d86cb6c4f0111d2e52706d889678",
+      "valid_from": "2026-09-05T10:39:35.512Z",
+      "status": "active"
+    },
+    {
+      "key_id": "operator-demo-1",
+      "role": "operator",
+      "address": "0xcdb695940a8558068867f63b6e861f8b1e190a34",
+      "valid_from": "2026-09-05T10:39:35.512Z",
+      "status": "active"
+    },
+    {
+      "key_id": "verifier-demo-1",
+      "role": "verifier",
+      "address": "0x58518bbb9f7be5bca8350970dbd042d69d3901c3",
+      "valid_from": "2026-09-05T10:39:35.512Z",
+      "status": "active"
+    },
+    {
+      "key_id": "scenario-author-1",
+      "role": "scenario_author",
+      "address": "0xcdb695940a8558068867f63b6e861f8b1e190a34",
+      "valid_from": "2026-09-05T10:39:35.512Z",
+      "status": "active"
+    }
+  ],
+  "verifier_programs": [
+    {
+      "program_hash": "0x5aed28ef0bdeb20ef40b28ca92bf94015a0be82552164b584ec1fe100b4bf761",
+      "name": "afr-verifier-svc",
+      "version": "0.1.0",
+      "build_record": "Source-module digest, Node 22.23.2, pnpm-lock.yaml; software statement only, no reproducible execution claim"
+    }
+  ]
+}

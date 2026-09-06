@@ -1,0 +1,32 @@
+
+> agent-flight-recorder@0.0.0 build <workspace>
+> tsc --noEmit && pnpm --filter @afr/web build
+
+
+> @afr/web@0.1.0 build <workspace>/apps/web
+> next build
+
+   ▲ Next.js 15.5.25
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 1010ms
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/4) ...
+   Generating static pages (1/4)
+   Generating static pages (2/4)
+   Generating static pages (3/4)
+ ✓ Generating static pages (4/4)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    18.3 kB         120 kB
+└ ○ /_not-found                            990 B         103 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/06fe438f-721ee6fb2d1e2e20.js  54.2 kB
+  ├ chunks/466-775af538a412f675.js         46 kB
+  └ other shared chunks (total)           1.9 kB
+
+
+○  (Static)  prerendered as static content

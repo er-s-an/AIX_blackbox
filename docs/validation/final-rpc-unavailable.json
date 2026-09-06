@@ -1,0 +1,121 @@
+{
+  "format_version": "afr-verify/1",
+  "verified_at": "2026-09-05T12:19:29.864Z",
+  "mode": "online",
+  "trust_source": {
+    "path": "<workspace>/dist/afr-verify/trust/trusted_signers.json",
+    "repo_url": "urn:afr:local-worktree",
+    "repo_commit": "3d6c531692bf5bdb0ebf2ed456c6fe8da2186361",
+    "published_at": "2026-09-05T10:44:35.162Z",
+    "overridden_by_flag": false
+  },
+  "rpc": "http://127.0.0.1:9",
+  "packet": {
+    "packet_id": "0x91c51e362b20180eb5e433d756843efa",
+    "lineage_id": "0xb861e021ba8bad6dd265482bf6306364",
+    "disclosure_set_id": "full",
+    "packet_version": 1,
+    "commitment": "0xf74d10c2c4e507500674b5f691fda2664df622c263cecf5a2886c376730b839f"
+  },
+  "checks": [
+    {
+      "id": "FORMAT",
+      "status": "Pass",
+      "detail": "Schemas and safe ZIP container accepted",
+      "critical": true
+    },
+    {
+      "id": "INTEGRITY",
+      "status": "Pass",
+      "detail": "All disclosed file bytes match signed inventory",
+      "critical": true
+    },
+    {
+      "id": "MANIFEST_SIG",
+      "status": "Pass",
+      "detail": "Manifest digest and EIP-191 signature match",
+      "critical": true
+    },
+    {
+      "id": "MANDATE_SIG",
+      "status": "Pass",
+      "detail": "EIP-712 user signature and configured chain/domain/asset match",
+      "critical": true
+    },
+    {
+      "id": "LINKAGE",
+      "status": "Pass",
+      "detail": "Signed evidence, policy, scenario and object references agree",
+      "critical": true
+    },
+    {
+      "id": "EXEC_ENV",
+      "status": "Pass",
+      "detail": "Registered verifier signed matching input/output digests",
+      "critical": true,
+      "label": "Execution environment: verifier-signed statement (software; not hardware-attested)"
+    },
+    {
+      "id": "TEE_ATTESTATION",
+      "status": "Not Present",
+      "detail": "Hardware attestation outside P0 scope",
+      "critical": false
+    },
+    {
+      "id": "SIGNER_TRUST",
+      "status": "Pass",
+      "detail": "Signer registration checked against installation trust",
+      "critical": true,
+      "label": "Signer: gateway/gateway-demo-1 (per trusted_signers.json @ 3d6c531692bf5bdb0ebf2ed456c6fe8da2186361 + unpublished changes)"
+    },
+    {
+      "id": "DISCLOSURE",
+      "status": "Pass",
+      "detail": "Declared disclosure set full",
+      "critical": true
+    },
+    {
+      "id": "ANCHOR_AUTH",
+      "status": "Unknown",
+      "detail": "RPC unavailable or wrong network",
+      "critical": true
+    },
+    {
+      "id": "ANCHOR_PACKET",
+      "status": "Unknown",
+      "detail": "RPC unavailable or wrong network",
+      "critical": true
+    },
+    {
+      "id": "AUTH_ORDER",
+      "status": "Unknown",
+      "detail": "RPC unavailable or wrong network",
+      "critical": true
+    },
+    {
+      "id": "RECEIPT_PAYMENT",
+      "status": "Unknown",
+      "detail": "RPC unavailable or wrong network",
+      "critical": true
+    },
+    {
+      "id": "RECEIPT_PAYOUT",
+      "status": "Unknown",
+      "detail": "RPC unavailable or wrong network",
+      "critical": true
+    }
+  ],
+  "superseded": {
+    "packet": null,
+    "auth": null
+  },
+  "warnings": [
+    "Local unpublished working tree; source commit is a base commit, not a release attestation."
+  ],
+  "caps": [
+    "Integrity does not prove source truth, causality, or correctness of AI or human decisions.",
+    "Execution environment: verifier-signed statement (software; not hardware-attested)",
+    "Signer registration is operator-maintained; RPC and published trust configuration remain trust assumptions."
+  ],
+  "overall": "incomplete"
+}

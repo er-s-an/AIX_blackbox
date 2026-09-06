@@ -1,0 +1,70 @@
+{
+  "name": "agent-flight-recorder",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && pnpm --filter @afr/web build",
+    "test": "vitest run && pnpm test:contracts",
+    "test:contracts": "cd contracts && \"$HOME/.foundry/bin/forge\" test -vv",
+    "vectors": "vitest run packages/core",
+    "negatives": "tsx scripts/negatives.ts",
+    "eval": "tsx scripts/eval.ts",
+    "spike:s1": "tsx scripts/signature-check.ts",
+    "spike:s2": "tsx scripts/history.ts",
+    "spike:s3": "tsx scripts/negatives.ts",
+    "spike:s4": "tsx scripts/timing.ts",
+    "deploy:testnet": "tsx scripts/deploy.ts",
+    "dev": "tsx scripts/dev.ts",
+    "lint": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "setup:local": "tsx scripts/setup-local.ts",
+    "verify": "tsx packages/verifier-cli/src/cli.ts",
+    "live": "tsx scripts/live.ts",
+    "history": "tsx scripts/history.ts",
+    "build:cli": "tsx scripts/build-cli.ts",
+    "test:browser": "tsx scripts/browser-qa.ts",
+    "test:security": "tsx scripts/security-check.ts",
+    "start:recorder": "tsx scripts/start-recorder.ts",
+    "build:recorder": "tsx scripts/build-recorder.ts",
+    "test:cold": "tsx scripts/cold-recorder-check.ts",
+    "test:ablation": "tsx scripts/ablation.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "3.2.6",
+    "esbuild": "0.25.12",
+    "node": "^22.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.6.0",
+    "vitest": "3.2.6"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fastify/cookie": "^11.0.0",
+    "@fastify/cors": "^11.0.0",
+    "@fastify/helmet": "^13.0.0",
+    "@fastify/rate-limit": "^10.0.0",
+    "@openzeppelin/contracts": "5.4.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "better-sqlite3": "^12.0.0",
+    "canonicalize": "2.1.0",
+    "dotenv": "^16.0.0",
+    "fastify": "^5.0.0",
+    "fflate": "0.8.3",
+    "jsonc-parser": "^3.3.0",
+    "viem": "2.56.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "8.5.28",
+      "vite": "6.4.3"
+    }
+  }
+}

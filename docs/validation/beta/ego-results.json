@@ -1,0 +1,19 @@
+{
+  "at": "2026-09-05",
+  "browser": "ego",
+  "task_space": 2,
+  "checks": {
+    "agent_creation": true,
+    "credential_masked_and_dismissed": true,
+    "external_run_filter": true,
+    "snapshot_download": true,
+    "snapshot_rpc_receipt_pass": true,
+    "user_review_controls_absent": true,
+    "user_snapshot_enabled": true,
+    "390px_connect_overflow": false,
+    "390px_detail_overflow": false
+  },
+  "download_source": "Browser downloaded into macOS Downloads, copied to runs/beta-ui/downloads",
+  "wallet_extension": "NOT_RUN",
+  "human_approval": "NOT_RUN"
+}

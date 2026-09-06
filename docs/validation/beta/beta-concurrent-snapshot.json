@@ -1,0 +1,10 @@
+{
+  "at": "2026-09-05T14:28:52.348Z",
+  "id": "0x1f51a07f0d1a97d8593011381d60875a",
+  "exported_while_purchase_running": true,
+  "snapshot_ms": 22,
+  "mid_status": "Recording",
+  "final_status": "Settled",
+  "snapshot_survived_long_operation": true,
+  "source": "Real authorization anchor and model purchase, overlapping snapshot request"
+}
